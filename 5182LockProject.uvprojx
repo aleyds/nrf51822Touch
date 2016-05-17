@@ -14,8 +14,8 @@
         <TargetCommonOption>
           <Device>nRF51822_xxAA</Device>
           <Vendor>Nordic Semiconductor</Vendor>
-          <PackID>NordicSemiconductor.nRF_DeviceFamilyPack.8.2.0</PackID>
-          <PackURL>http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_DeviceFamilyPack/</PackURL>
+          <PackID>NordicSemiconductor.nRF_DeviceFamilyPack.8.5.0</PackID>
+          <PackURL>http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/</PackURL>
           <Cpu>IROM(0x00000000,0x40000) IRAM(0x20000000,0x4000) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>BOARD_PCA10001 NRF51,DEBUG_NRF_USER, BLE_STACK_SUPPORT_REQD</Define>
               <Undefine></Undefine>
-              <IncludePath>..;include;include\app_common;include\ble;include\ble\ble_services;include\s110;include\sd_common;include\cipher;include\basal;include\rtc;include\spi;include\i2c;include\module\storage;include\module\devices;include\module\light;include\module\serial;include\module\timer;include\module\tools;include\module\bluetooth;include\module\buttons;include\module\mkey;include\module\control;include\module\log;include\module\rtc;include\module\skey;include\module\battery;include\module\voice;include\module\gpio;include\module\alarm;include\module\motor;include\module\system;include\module\wifi;include\module\finger;include\module\touch</IncludePath>
+              <IncludePath>code\application\include;code\application\include\module\boards;code\application\include\module\external;code\application\include\module\tools;code\application\include\basal;code\application\include\app_common;code\application\include\sd_common;code\application\include\ble;code\application\include\s110;code\application\include\ble\ble_services;code\application\include\ble\device_manager;code\application\include\module\external\touch;code\application\include\cipher</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -406,315 +406,187 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>src</GroupName>
+          <GroupName>main</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\main.c</FilePath>
+              <FilePath>.\code\application\source\main.c</FilePath>
             </File>
             <File>
-              <FileName>hs_event.c</FileName>
+              <FileName>wy_event.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\hs_event.c</FilePath>
-            </File>
-            <File>
-              <FileName>main_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\main_task.c</FilePath>
+              <FilePath>.\code\application\source\wy_event.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>services</GroupName>
+          <GroupName>application</GroupName>
           <Files>
             <File>
-              <FileName>ble_nus.c</FileName>
+              <FileName>wy_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\services\ble_nus.c</FilePath>
+              <FilePath>.\code\application\source\modules\boards\wy_uart.c</FilePath>
             </File>
             <File>
-              <FileName>ble_srv_common.c</FileName>
+              <FileName>wy_timers.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\services\ble_srv_common.c</FilePath>
+              <FilePath>.\code\application\source\modules\boards\wy_timers.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_system.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_storage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_storage.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_control_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_control_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_control_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_control_common.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_ble_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_ble_common.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_ble_character.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_ble_character.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_ble_adv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_ble_adv.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_battery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\boards\wy_battery.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_alarm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\external\wy_alarm.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_light.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\external\wy_light.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_touch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\external\touch\wy_touch.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_touch_tty6952.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\external\touch\wy_touch_tty6952.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_aes_cipher.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\tools\wy_aes_cipher.c</FilePath>
+            </File>
+            <File>
+              <FileName>wy_tools.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\code\application\source\modules\tools\wy_tools.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>libraries</GroupName>
+          <GroupName>service</GroupName>
           <Files>
             <File>
-              <FileName>ble_advdata.c</FileName>
+              <FileName>softdevice_handler.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\libraries\ble\ble_advdata.c</FilePath>
-            </File>
-            <File>
-              <FileName>ble_conn_params.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\ble\ble_conn_params.c</FilePath>
-            </File>
-            <File>
-              <FileName>ble_dis.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\ble\ble_dis.c</FilePath>
+              <FilePath>.\code\application\source\libraries\sd_common\softdevice_handler.c</FilePath>
             </File>
             <File>
               <FileName>nrf_ecb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\libraries\nrf_ecb\nrf_ecb.c</FilePath>
-            </File>
-            <File>
-              <FileName>softdevice_handler.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\sd_common\softdevice_handler.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\app_common\app_timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>pstorage.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\app_common\pstorage.c</FilePath>
-            </File>
-            <File>
-              <FileName>aes_decrypt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\cipher\aes_decrypt.c</FilePath>
+              <FilePath>.\code\application\source\libraries\nrf_ecb\nrf_ecb.c</FilePath>
             </File>
             <File>
               <FileName>lib_i2c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\libraries\i2c\lib_i2c.c</FilePath>
+              <FilePath>.\code\application\source\libraries\i2c\lib_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>twi_sw_master.c</FileName>
+              <FileName>ble_nus.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\libraries\i2c\twi_master\twi_sw_master.c</FilePath>
+              <FilePath>.\code\application\source\services\ble_nus.c</FilePath>
             </File>
             <File>
-              <FileName>battery.c</FileName>
+              <FileName>ble_srv_common.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\libraries\battery\battery.c</FilePath>
-            </File>
-            <File>
-              <FileName>ble_bas.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\ble\ble_bas.c</FilePath>
-            </File>
-            <File>
-              <FileName>lib_rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\rtc\lib_rtc.c</FilePath>
-            </File>
-            <File>
-              <FileName>spi_master.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\spi\spi_master.c</FilePath>
-            </File>
-            <File>
-              <FileName>lib_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\spi\lib_spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>twi_hw_master.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\libraries\i2c\twi_master\twi_hw_master.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>2</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
+              <FilePath>.\code\application\source\services\ble_srv_common.c</FilePath>
             </File>
             <File>
               <FileName>crc16.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\libraries\app_common\crc16.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>module</GroupName>
-          <Files>
-            <File>
-              <FileName>hs_storage.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\storage\hs_storage.c</FilePath>
+              <FilePath>.\code\application\source\libraries\app_common\crc16.c</FilePath>
             </File>
             <File>
-              <FileName>hs_light.c</FileName>
+              <FileName>pstorage.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\light\hs_light.c</FilePath>
+              <FilePath>.\code\application\source\libraries\app_common\pstorage.c</FilePath>
             </File>
             <File>
-              <FileName>hs_timers.c</FileName>
+              <FileName>ble_advdata.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\timer\hs_timers.c</FilePath>
+              <FilePath>.\code\application\source\libraries\ble\ble_advdata.c</FilePath>
             </File>
             <File>
-              <FileName>hs_uart.c</FileName>
+              <FileName>ble_conn_params.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\serial\hs_uart.c</FilePath>
+              <FilePath>.\code\application\source\libraries\ble\ble_conn_params.c</FilePath>
             </File>
             <File>
-              <FileName>hs_tools.c</FileName>
+              <FileName>ble_bas.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\tools\hs_tools.c</FilePath>
+              <FilePath>.\code\application\source\libraries\ble\ble_bas.c</FilePath>
             </File>
             <File>
-              <FileName>hs_ble_common.c</FileName>
+              <FileName>aes_decrypt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\bluetooth\hs_ble_common.c</FilePath>
+              <FilePath>.\code\application\source\libraries\cipher\aes_decrypt.c</FilePath>
             </File>
             <File>
-              <FileName>hs_ble_adv.c</FileName>
+              <FileName>twi_hw_master.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\bluetooth\hs_ble_adv.c</FilePath>
+              <FilePath>.\code\application\source\libraries\i2c\twi_master\twi_hw_master.c</FilePath>
             </File>
             <File>
-              <FileName>hs_buttons.c</FileName>
+              <FileName>battery.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\buttons\hs_buttons.c</FilePath>
+              <FilePath>.\code\application\source\libraries\battery\battery.c</FilePath>
             </File>
             <File>
-              <FileName>hs_ble_character.c</FileName>
+              <FileName>app_timer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\bluetooth\hs_ble_character.c</FilePath>
+              <FilePath>.\code\application\source\libraries\app_common\app_timer.c</FilePath>
             </File>
             <File>
-              <FileName>hs_aes_cipher.c</FileName>
+              <FileName>ble_dis.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\modules\tools\hs_aes_cipher.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_mkey.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\mkey\hs_mkey.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_near_control_common.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\control\hs_near_control_common.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_near_control_core.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\control\hs_near_control_core.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_log.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\log\hs_log.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\rtc\hs_rtc.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_skey.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\skey\hs_skey.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_battery.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\battery\hs_battery.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_voice.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\voice\hs_voice.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\gpio\hs_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_alarm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\alarm\hs_alarm.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_system.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\system\hs_system.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\motor\hs_motor.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_finger.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\finger\hs_finger.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_touch.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\touch\hs_touch.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_touch_tty6952.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\touch\hs_touch_tty6952.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_touch_button.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\touch\hs_touch_button.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_finger_addie.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\finger\hs_finger_addie.c</FilePath>
-            </File>
-            <File>
-              <FileName>hs_finger_beg511.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\modules\finger\hs_finger_beg511.c</FilePath>
+              <FilePath>.\code\application\source\libraries\ble\ble_dis.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -723,18 +595,6 @@
         </Group>
         <Group>
           <GroupName>::Device</GroupName>
-          <Files>
-            <File>
-              <FileName>arm_startup_nrf51.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>RTE\Device\nRF51822_xxAA\arm_startup_nrf51.s</FilePath>
-            </File>
-            <File>
-              <FileName>system_nrf51.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\Device\nRF51822_xxAA\system_nrf51.c</FilePath>
-            </File>
-          </Files>
         </Group>
       </Groups>
     </Target>
@@ -771,16 +631,16 @@
       </file>
       <file attr="config" category="source" condition="ARM Compiler" name="Device\Source\arm\arm_startup_nrf51.s">
         <instance index="0">RTE\Device\nRF51822_xxAA\arm_startup_nrf51.s</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="NordicSemiconductor" Cversion="7.1.0" condition="nRF51 Series CMSIS Device"/>
-        <package name="nRF_DeviceFamilyPack" schemaVersion="1.0" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_DeviceFamilyPack/" vendor="NordicSemiconductor" version="7.1.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NordicSemiconductor" Cversion="8.5.0" condition="nRF51 Series CMSIS Device"/>
+        <package license="License\license.txt" name="nRF_DeviceFamilyPack" schemaVersion="1.3" url="http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/" vendor="NordicSemiconductor" version="8.5.0"/>
         <targetInfos>
           <targetInfo name="nrf5182"/>
         </targetInfos>
       </file>
       <file attr="config" category="source" name="Device\Source\system_nrf51.c">
         <instance index="0">RTE\Device\nRF51822_xxAA\system_nrf51.c</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="NordicSemiconductor" Cversion="7.1.0" condition="nRF51 Series CMSIS Device"/>
-        <package name="nRF_DeviceFamilyPack" schemaVersion="1.0" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_DeviceFamilyPack/" vendor="NordicSemiconductor" version="7.1.0"/>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NordicSemiconductor" Cversion="8.5.0" condition="nRF51 Series CMSIS Device"/>
+        <package license="License\license.txt" name="nRF_DeviceFamilyPack" schemaVersion="1.3" url="http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/" vendor="NordicSemiconductor" version="8.5.0"/>
         <targetInfos>
           <targetInfo name="nrf5182"/>
         </targetInfos>
