@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: '5182LockProject' 
- * Target:  'nrf5182' 
+ * Project: 'Keyboard' 
+ * Target:  'Keyboard' 
  */
 
 #ifndef RTE_COMPONENTS_H

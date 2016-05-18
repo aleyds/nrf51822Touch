@@ -22,7 +22,7 @@
   </DaveTm>
 
   <Target>
-    <TargetName>nrf5182</TargetName>
+    <TargetName>Keyboard</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
     <ToolsetName>ARM-ADS</ToolsetName>
     <TargetOption>
